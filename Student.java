@@ -66,3 +66,31 @@ class Student {
 			return false;
 	}
 }
+
+
+class Course {
+	List<Student> lista = new ArrayList<Student>();
+
+	public Course(List<Student> lista) {
+		this.lista = lista;
+	}
+
+	int totalSignatures () {
+		int vkupno = 0;
+		for (Student s : lista) {
+			if (s.hasSignature())
+				vkupno ++;
+		}
+		return vkupno;
+	}
+	double averagePoints () {
+		double totalAvg = 0;
+		double result;
+		for (Student s : lista) {
+			double avgPerStudent = s.getAverage();
+			totalAvg += avgPerStudent;
+		}
+		result = totalAvg / lista.size();
+		return result;
+	}
+}
